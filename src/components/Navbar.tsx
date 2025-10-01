@@ -21,7 +21,8 @@ export default function Navbar({ onNavigate }: Props) {
         </a>
         <nav className="hidden items-center gap-6 md:flex">
           <a href="#/" onClick={handleNav('#/')} className="text-sm font-medium text-gray-700 hover:text-gray-900">Home</a>
-          <a href="#/" onClick={handleNav('#/privacy')} className="rounded-md bg-[#0432FF] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0028d8]">Privacy</a>
+          <a href="#/" onClick={handleNav('#/privacy')} className="text-sm font-medium text-gray-700 hover:text-gray-900">Privacy</a>
+          <a href="https://testflight.apple.com/join/uhsJJhnK" target='_blank' rel="noopener noreferrer" className="rounded-md bg-[#0432FF] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0028d8]">Download Beta</a>
         </nav>
       </div>
     </header>

@@ -26,7 +26,7 @@ export default function Privacy() {
             NutriTrack provides a mobile app that helps you
             log food, calories, and fitness progress. If you have questions about
             this Privacy Policy, contact us at {" "}
-            <a href="mailto:diegodomdev@gmail.com" className="text-brand underline">diegodomdev@gmail.com</a>.
+            <a href="mailto:support@nutritrack-app.com" className="text-brand underline">support@nutritrack-app.com</a>.
           </p>
 
           <h2 className="text-2xl font-semibold mt-10 mb-3">2. What we collect</h2>
@@ -86,7 +86,7 @@ export default function Privacy() {
           <p>
             Questions? Contact us at {" "}
             <a href="mailto:privacy@yourdomain.com" className="text-brand underline"
-            >diegodomdev@gmail.com</a>.
+            >support@nutritrack-app.com</a>.
           </p>
         </section>
 

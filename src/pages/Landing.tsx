@@ -19,12 +19,7 @@ export default function Landing() {
               for real life.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="#/privacy"
-                className="rounded-md bg-[#0432FF] px-4 py-2 text-sm font-semibold text-white hover:bg-[#0028d8]"
-              >
-                Read Privacy
-              </a>
+              <a href="https://testflight.apple.com/join/uhsJJhnK" target='_blank' rel="noopener noreferrer" className="rounded-md bg-[#0432FF] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0028d8]">Download Beta</a>
             </div>
 
           </div>
@@ -80,6 +75,70 @@ export default function Landing() {
         </div>
       </section>
 
+
+
+      {/* 1-2-3 Section */}
+      <section className="mx-auto mt-20 max-w-7xl px-4 sm:mt-28 sm:px-6">
+        <h2 className="text-center text-3xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#0432FF] to-[#FFA5E2] bg-clip-text text-transparent">
+          Hit your goals, one meal at a time.
+        </h2>
+
+        <div className="mt-14 grid gap-12 lg:gap-16">
+          {/* Step 1 */}
+          <div className="group relative rounded-3xl bg-white shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden">
+            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0432FF] text-white font-bold text-lg">1</div>
+            <div className="grid md:grid-cols-2 items-center">
+              <div className="bg-[#d400ff]/20 flex items-center justify-center p-6">
+                <img src="/app-img-diary.png" alt="Track calories" className="w-64 max-w-full " />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold">Log meals your way</h3>
+                <p className="mt-3 text-gray-600 text-lg">
+                  Snap barcodes, speak your foods, or tap quick-add. Logging has never been easier.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div className="group relative rounded-3xl bg-white shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden">
+            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0432FF] text-white font-bold text-lg">2</div>
+            <div className="grid md:grid-cols-2 items-center">
+              <div className="p-8 order-2 md:order-1">
+                <h3 className="text-2xl font-semibold">See your progress clearly</h3>
+                <p className="mt-3 text-gray-600 text-lg">
+                  Charts, streaks, and insights that keep you on track without stressing perfection.
+                </p>
+              </div>
+              <div className="order-1 md:order-2 flex items-center justify-center p-6 bg-[#ff005d]/20">
+                <img
+                  src="/app-img-home.png"
+                  alt="Follow progress"
+                  className="w-80 max-w-full rounded-2xl "
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="group relative rounded-3xl bg-white shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden">
+            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0432FF] text-white font-bold text-lg">3</div>
+            <div className="grid md:grid-cols-2 items-center">
+              <div className="p-8 order-2 md:order-2">
+                <h3 className="text-2xl font-semibold">Smarter eating, simplified</h3>
+                <p className="mt-3 text-gray-600 text-lg">
+                  Discover what fuels you best and get meal ideas tailored to your lifestyle.
+                </p>
+              </div>
+              <div className=" order-1 md:order-1 flex items-center justify-center p-6 bg-[#0432FF]/20">
+                <img src="/app-img-search.png" alt="Search foods" className="w-64 max-w-full " />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section id="cta" className="mx-auto mt-16 max-w-7xl px-4 sm:mt-24 sm:px-6">
         <div className="rounded-2xl bg-[#0432FF] px-6 py-10 text-white sm:px-10">
@@ -96,19 +155,17 @@ export default function Landing() {
                 Create Free Account
               </a> */}
               <a
-                href="# /privacy"
+                href="https://testflight.apple.com/join/uhsJJhnK"
                 className="rounded-md border border-white/30 px-4 py-2 text-sm font-semibold text-white hover:bg-white hover:text-black"
               >
-                Our Privacy
+                Join our Beta
               </a>
             </div>
           </div>
         </div>
       </section >
-
       <div className="mt-16" />
       <Footer />
     </div >
   )
 }
-
