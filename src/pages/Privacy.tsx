@@ -91,7 +91,7 @@ export default function Privacy() {
         </section>
 
         <div className="mt-8">
-          <a href="#/" className="text-sm font-semibold text-[#0432FF] hover:text-[#0028d8]">
+          <a href="#/" className="text-sm font-semibold text-main hover:text-main-dark">
             ← Back to Home
           </a>
         </div>

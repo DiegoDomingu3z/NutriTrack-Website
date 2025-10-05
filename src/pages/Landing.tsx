@@ -19,14 +19,14 @@ export default function Landing() {
               for real life.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="https://testflight.apple.com/join/uhsJJhnK" target='_blank' rel="noopener noreferrer" className="rounded-md bg-[#0432FF] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0028d8]">Download Beta</a>
+              <a href="https://testflight.apple.com/join/uhsJJhnK" target='_blank' rel="noopener noreferrer" className="rounded-md bg-main px-3 py-2 text-sm font-semibold text-white hover:bg-main-dark">Download Beta</a>
             </div>
 
           </div>
 
           <div className="relative">
             {/* Fallback placeholder visual */}
-            <img src="flyer.png" className="aspect-[4/3] w-full   " />
+            <img src="flyer-green.png" className="aspect-[4/3] w-full   " />
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function Landing() {
               className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
             >
               <div className="mb-3 h-8 w-8 rounded">
-                <img src="/logo.png" className="h-8 w-8 rounded" />
+                <img src="/logo-green.jpg" className="h-8 w-8 rounded" />
               </div>
               <h3 className="text-base font-semibold">{f.title}</h3>
               <p className="mt-1 text-sm text-gray-600">{f.desc}</p>
@@ -79,16 +79,16 @@ export default function Landing() {
 
       {/* 1-2-3 Section */}
       <section className="mx-auto mt-20 max-w-7xl px-4 sm:mt-28 sm:px-6">
-        <h2 className="text-center text-3xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#0432FF] to-[#FFA5E2] bg-clip-text text-transparent">
+        <h2 className="text-center text-3xl sm:text-5xl font-extrabold bg-gradient-to-r  from-[#FF7F11] via-main to-main-dark bg-clip-text text-transparent">
           Hit your goals, one meal at a time.
         </h2>
 
         <div className="mt-14 grid gap-12 lg:gap-16">
           {/* Step 1 */}
           <div className="group relative rounded-3xl bg-white shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden">
-            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0432FF] text-white font-bold text-lg">1</div>
+            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-main text-white font-bold text-lg">1</div>
             <div className="grid md:grid-cols-2 items-center">
-              <div className="bg-[#d400ff]/20 flex items-center justify-center p-6">
+              <div className="bg-main/20 flex items-center justify-center p-6">
                 <img src="/app-img-diary.png" alt="Track calories" className="w-64 max-w-full " />
               </div>
               <div className="p-8">
@@ -103,7 +103,7 @@ export default function Landing() {
 
           {/* Step 2 */}
           <div className="group relative rounded-3xl bg-white shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden">
-            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0432FF] text-white font-bold text-lg">2</div>
+            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-main text-white font-bold text-lg">2</div>
             <div className="grid md:grid-cols-2 items-center">
               <div className="p-8 order-2 md:order-1">
                 <h3 className="text-2xl font-semibold">See your progress clearly</h3>
@@ -111,7 +111,7 @@ export default function Landing() {
                   Charts, streaks, and insights that keep you on track without stressing perfection.
                 </p>
               </div>
-              <div className="order-1 md:order-2 flex items-center justify-center p-6 bg-[#ff005d]/20">
+              <div className="order-1 md:order-2 flex items-center justify-center p-6 bg-[#FF7F11]/20">
                 <img
                   src="/app-img-home.png"
                   alt="Follow progress"
@@ -123,7 +123,7 @@ export default function Landing() {
 
           {/* Step 3 */}
           <div className="group relative rounded-3xl bg-white shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden">
-            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0432FF] text-white font-bold text-lg">3</div>
+            <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-main text-white font-bold text-lg">3</div>
             <div className="grid md:grid-cols-2 items-center">
               <div className="p-8 order-2 md:order-2">
                 <h3 className="text-2xl font-semibold">Smarter eating, simplified</h3>
@@ -131,7 +131,7 @@ export default function Landing() {
                   Discover what fuels you best and get meal ideas tailored to your lifestyle.
                 </p>
               </div>
-              <div className=" order-1 md:order-1 flex items-center justify-center p-6 bg-[#0432FF]/20">
+              <div className=" order-1 md:order-1 flex items-center justify-center p-6 bg-[#FF69B4]/20">
                 <img src="/app-img-search.png" alt="Search foods" className="w-64 max-w-full " />
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function Landing() {
 
       {/* CTA */}
       <section id="cta" className="mx-auto mt-16 max-w-7xl px-4 sm:mt-24 sm:px-6">
-        <div className="rounded-2xl bg-[#0432FF] px-6 py-10 text-white sm:px-10">
+        <div className="rounded-2xl bg-main px-6 py-10 text-white sm:px-10">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-bold sm:text-3xl">Start tracking today</h2>
             <p className="mt-2 text-white/90">

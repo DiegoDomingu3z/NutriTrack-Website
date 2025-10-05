@@ -1,1 +1,10 @@
 /* Component-scoped styles (kept minimal). Tailwind is imported in index.css. */
+
+@import "tailwindcss";
+
+
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
+  --color-main: #40ab49;
+  --color-main-dark: #2e7c36
+}

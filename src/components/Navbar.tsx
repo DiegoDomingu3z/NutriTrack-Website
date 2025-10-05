@@ -16,13 +16,13 @@ export default function Navbar({ onNavigate }: Props) {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <a href="#/" onClick={handleNav('#/')} className="flex items-center gap-2">
           {/* Placeholder logo */}
-          <img src="/logo.png" className="h-8 w-8 rounded" />
+          <img src="/logo-green.jpg" className="h-10 w-10 rounded" />
           <span className="text-lg font-semibold text-gray-900">NutriTrack</span>
         </a>
         <nav className="hidden items-center gap-6 md:flex">
           <a href="#/" onClick={handleNav('#/')} className="text-sm font-medium text-gray-700 hover:text-gray-900">Home</a>
           <a href="#/" onClick={handleNav('#/privacy')} className="text-sm font-medium text-gray-700 hover:text-gray-900">Privacy</a>
-          <a href="https://testflight.apple.com/join/uhsJJhnK" target='_blank' rel="noopener noreferrer" className="rounded-md bg-[#0432FF] px-3 py-2 text-sm font-semibold text-white hover:bg-[#0028d8]">Download Beta</a>
+          <a href="https://testflight.apple.com/join/uhsJJhnK" target='_blank' rel="noopener noreferrer" className="rounded-md bg-main px-3 py-2 text-sm font-semibold text-white hover:bg-main-dark">Download Beta</a>
         </nav>
       </div>
     </header>
