@@ -1,12 +1,12 @@
-name: Deploy Vite React app to AWS Amplify (OIDC, Tag-based)
+name: Deploy Vite React app to AWS Amplify (OIDC + Tag Deploy)
 
 on:
   push:
     tags:
-      - 'v*.*.*'  # Only deploy on version tags like v1.0.0
+      - 'v*.*.*'   # only deploy when you push version tags like v1.0.0
 
 permissions:
-  id-token: write    # Needed for GitHub → AWS OIDC auth
+  id-token: write    # needed for OIDC
   contents: read
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      # ⚙️ Set up Node.js for Vite build
+      # ⚙️ Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -28,25 +28,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 🏗️ Build the Vite app
+      # 🏗️ Build Vite project
       - name: Build Vite project
         run: npm run build
 
-      # 🔐 Configure temporary AWS credentials using OIDC
+      # 🔐 Configure temporary AWS credentials (OIDC)
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::539247449924:role/Github-Amplify-workflow # 👈 your IAM role
+          role-to-assume: arn:aws:iam::539247449924:role/Github-Amplify-workflow  # 👈 your IAM role ARN
           aws-region: us-east-1
 
       # 🧰 Install Amplify CLI
       - name: Install Amplify CLI
         run: npm install -g @aws-amplify/cli
 
-      # 🚀 Deploy to AWS Amplify
+      # 🔄 Pull Amplify environment (fetches project config before deploy)
+      - name: Pull Amplify environment
+        env:
+          AMPLIFY_APP_ID: d201z2l5y812qz    # 👈 your Amplify App ID
+          AMPLIFY_ENV: main                  # 👈 Amplify environment name
+        run: amplify pull --appId $AMPLIFY_APP_ID --envName $AMPLIFY_ENV --yes
+
+      # 🚀 Deploy to AWS Amplify Hosting
       - name: Deploy to Amplify Hosting
         env:
-          AMPLIFY_APP_ID: d201z2l5y812qz  # 👈 replace with your actual Amplify app ID
-          AMPLIFY_ENV: main              # can match your Amplify environment name
+          AMPLIFY_APP_ID: d201z2l5y812qz
+          AMPLIFY_ENV: main
           AMPLIFY_DEFAULT_EDITOR: code
         run: amplify publish --yes
