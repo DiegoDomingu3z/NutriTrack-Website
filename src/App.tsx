@@ -38,7 +38,7 @@ export default function App() {
 
   useEffect(() => {
     if (route === 'privacy') document.title = 'Privacy • NutriTrack'
-    else document.title = 'NutriTrack — Track Nutrition Smarter'
+    else document.title = 'NutriTrack'
   }, [route])
 
   if (route === 'privacy') return <Privacy />
