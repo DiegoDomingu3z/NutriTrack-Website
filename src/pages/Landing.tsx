@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { gaEvent } from "../analytics"
 
 export default function Landing() {
   return (
@@ -157,6 +158,14 @@ export default function Landing() {
               <a
                 href="https://testflight.apple.com/join/uhsJJhnK"
                 className="rounded-md border border-white/30 px-4 py-2 text-sm font-semibold text-white hover:bg-white hover:text-black"
+                onClick={() => {
+                  if (import.meta.env.PROD) {
+                    gaEvent('click', {
+                      label: 'Join Beta Link',
+                      location: 'CTA Section',
+                    });
+                  }
+                }}
               >
                 Join our Beta
               </a>

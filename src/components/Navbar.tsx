@@ -1,4 +1,5 @@
 import React from 'react'
+import { gaEvent } from '../analytics'
 
 type Props = {
   onNavigate?: (to: string) => void
@@ -22,7 +23,22 @@ export default function Navbar({ onNavigate }: Props) {
         <nav className="hidden items-center gap-6 md:flex">
           <a href="#/" onClick={handleNav('#/')} className="text-sm font-medium text-gray-700 hover:text-gray-900">Home</a>
           <a href="#/" onClick={handleNav('#/privacy')} className="text-sm font-medium text-gray-700 hover:text-gray-900">Privacy</a>
-          <a href="https://testflight.apple.com/join/uhsJJhnK" target='_blank' rel="noopener noreferrer" className="rounded-md bg-main px-3 py-2 text-sm font-semibold text-white hover:bg-main-dark">Download Beta</a>
+          <a
+            href="https://testflight.apple.com/join/uhsJJhnK"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              if (import.meta.env.PROD) {
+                gaEvent('click', {
+                  label: 'Download Beta Link',
+                  location: 'Navbar',
+                });
+              }
+            }}
+            className="rounded-md bg-main px-3 py-2 text-sm font-semibold text-white hover:bg-main-dark"
+          >
+            Download Beta
+          </a>
         </nav>
       </div>
     </header>
