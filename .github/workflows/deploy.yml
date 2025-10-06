@@ -39,12 +39,37 @@ jobs:
           role-to-assume: arn:aws:iam::539247449924:role/Github-Amplify-workflow  # 👈 your IAM role ARN
           aws-region: us-east-1
           
-  # Deploy using AWS CLI instead of Amplify CLI
-      - name: Deploy to Amplify Hosting
-        run: |
-          echo "Uploading build output to Amplify..."
-          aws amplify start-deployment \
-            --app-id d201z2l5y812qz \
-            --branch-name main \
-            --source-dir dist/
+ 
+      # 🧰 Install zip tool
+      - name: Prepare build artifact
+        run: zip -r build.zip dist/
 
+      # 🚀 Deploy to Amplify using real API flow
+      - name: Upload and start Amplify deployment
+        env:
+          APP_ID: d201z2l5y812qz
+          BRANCH_NAME: main
+        run: |
+          echo "📦 Getting upload URL from Amplify..."
+          UPLOAD_URL=$(aws amplify create-deployment \
+            --app-id $APP_ID \
+            --branch-name $BRANCH_NAME \
+            --query "zipUploadUrl" \
+            --output text)
+
+          DEPLOYMENT_ID=$(aws amplify create-deployment \
+            --app-id $APP_ID \
+            --branch-name $BRANCH_NAME \
+            --query "deploymentId" \
+            --output text)
+
+          echo "☁️ Uploading build.zip to Amplify..."
+          curl -T build.zip "$UPLOAD_URL"
+
+          echo "🚀 Starting deployment..."
+          aws amplify start-deployment \
+            --app-id $APP_ID \
+            --branch-name $BRANCH_NAME \
+            --deployment-id $DEPLOYMENT_ID
+
+          echo "✅ Deployment triggered successfully!"
