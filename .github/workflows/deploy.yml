@@ -1,0 +1,52 @@
+name: Deploy Vite React app to AWS Amplify (OIDC, Tag-based)
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Only deploy on version tags like v1.0.0
+
+permissions:
+  id-token: write    # Needed for GitHub → AWS OIDC auth
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 🧾 Checkout code
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      # ⚙️ Set up Node.js for Vite build
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 📦 Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 🏗️ Build the Vite app
+      - name: Build Vite project
+        run: npm run build
+
+      # 🔐 Configure temporary AWS credentials using OIDC
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::539247449924:role/Github-Amplify-workflow # 👈 your IAM role
+          aws-region: us-east-1
+
+      # 🧰 Install Amplify CLI
+      - name: Install Amplify CLI
+        run: npm install -g @aws-amplify/cli
+
+      # 🚀 Deploy to AWS Amplify
+      - name: Deploy to Amplify Hosting
+        env:
+          AMPLIFY_APP_ID: d201z2l5y812qz  # 👈 replace with your actual Amplify app ID
+          AMPLIFY_ENV: main              # can match your Amplify environment name
+          AMPLIFY_DEFAULT_EDITOR: code
+        run: amplify publish --yes
