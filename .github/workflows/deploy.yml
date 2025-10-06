@@ -38,22 +38,13 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::539247449924:role/Github-Amplify-workflow  # 👈 your IAM role ARN
           aws-region: us-east-1
-
-      # 🧰 Install Amplify CLI
-      - name: Install Amplify CLI
-        run: npm install -g @aws-amplify/cli
-
-      # 🔄 Pull Amplify environment (fetches project config before deploy)
-      - name: Pull Amplify environment
-        env:
-          AMPLIFY_APP_ID: d201z2l5y812qz    # 👈 your Amplify App ID
-          AMPLIFY_ENV: main                  # 👈 Amplify environment name
-        run: amplify pull --appId $AMPLIFY_APP_ID --envName $AMPLIFY_ENV --yes
-
-      # 🚀 Deploy to AWS Amplify Hosting
+          
+  # Deploy using AWS CLI instead of Amplify CLI
       - name: Deploy to Amplify Hosting
-        env:
-          AMPLIFY_APP_ID: d201z2l5y812qz
-          AMPLIFY_ENV: main
-          AMPLIFY_DEFAULT_EDITOR: code
-        run: amplify publish --yes
+        run: |
+          echo "Uploading build output to Amplify..."
+          aws amplify start-deployment \
+            --app-id d201z2l5y812qz \
+            --branch-name main \
+            --source-dir dist/
+
